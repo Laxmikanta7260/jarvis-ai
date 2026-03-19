@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+chromadb
+gtts
+pytesseract
+python-multipart
+jinja2
+requests
+pdf2image
+PyPDF2
+python-docx
+beautifulsoup4

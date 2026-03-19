@@ -1,0 +1,44 @@
+{
+  "a7f86de3-18fd-49bf-a733-a2a9d55295fe": {
+    "name": "My Knowledge Base",
+    "files": [
+      {
+        "file_id": "4312862f-721d-476b-b950-1e2962c86229",
+        "file_name": "a.cpp",
+        "chunk_count": 2,
+        "doc_ids_count": 2
+      }
+    ],
+    "total_chunks": 2
+  },
+  "c10b19b4-a3dd-4328-b09d-953e45ebd136": {
+    "name": "My Knowledge Base",
+    "files": [
+      {
+        "file_id": "360934aa-19ea-4200-b0a1-6db9729a4a5f",
+        "file_name": "b.cpp",
+        "chunk_count": 1,
+        "doc_ids_count": 1
+      }
+    ],
+    "total_chunks": 1
+  },
+  "b93e874a-2cb7-4afd-b2aa-a82cf477a9bf": {
+    "name": "My Knowledge Base",
+    "files": [
+      {
+        "file_id": "d376d476-bdf5-4e14-9e53-d0648ed09219",
+        "file_name": "b.cpp",
+        "chunk_count": 1,
+        "doc_ids_count": 1
+      },
+      {
+        "file_id": "856c6a1f-c25d-4fe9-a299-3b979c422bbd",
+        "file_name": "a.cpp",
+        "chunk_count": 2,
+        "doc_ids_count": 2
+      }
+    ],
+    "total_chunks": 3
+  }
+}

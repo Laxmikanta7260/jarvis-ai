@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jarvis // Multi-File Knowledge Base</title>
+
+    <link rel="stylesheet" href="/static/style.css?v=12" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="app-shell">
+        <div class="bg-grid"></div>
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+
+        <aside class="left-panel">
+            <div class="brand-block glass-card">
+                <div class="brand-top">
+                    <div class="brand-orb">
+                        <span class="orb-core"></span>
+                    </div>
+                    <div>
+                        <h1 class="brand-title">JARVIS</h1>
+                        <p class="brand-subtitle">Multi-File Knowledge Intelligence</p>
+                    </div>
+                </div>
+
+                <div class="brand-status">
+                    <span class="status-dot"></span>
+                    <span>System online</span>
+                </div>
+            </div>
+
+            <div class="glass-card panel-block">
+                <div class="panel-heading">
+                    <span class="eyebrow">Knowledge Base</span>
+                    <h2>Active Workspace</h2>
+                </div>
+
+                <div class="session-main">
+                    <div class="session-file" id="sidebarKbName">My Knowledge Base</div>
+                    <div class="session-note" id="sidebarStatus">No files added yet</div>
+                </div>
+
+                <div class="mini-stats">
+                    <div class="mini-stat">
+                        <span class="mini-label">Files</span>
+                        <strong id="fileCountInfo">0</strong>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="mini-label">Chunks</span>
+                        <strong id="chunkInfo">0</strong>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="mini-label">Chats</span>
+                        <strong id="chatCountInfo">0</strong>
+                    </div>
+                </div>
+
+                <div class="kb-files-wrap">
+                    <div class="kb-files-title">Files in knowledge base</div>
+                    <div id="kbFileList" class="kb-file-list">
+                        <div class="kb-empty">No files uploaded yet.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card panel-block">
+                <div class="panel-heading">
+                    <span class="eyebrow">Compatibility</span>
+                    <h2>Supported Inputs</h2>
+                </div>
+
+                <div class="tag-grid">
+                    <span class="tech-tag">PDF</span>
+                    <span class="tech-tag">TXT</span>
+                    <span class="tech-tag">PY</span>
+                    <span class="tech-tag">JS</span>
+                    <span class="tech-tag">TS</span>
+                    <span class="tech-tag">JAVA</span>
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">CPP</span>
+                    <span class="tech-tag">DOCX</span>
+                    <span class="tech-tag">CSV</span>
+                    <span class="tech-tag">JSON</span>
+                    <span class="tech-tag">MD</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                </div>
+            </div>
+
+            <div class="glass-card panel-block">
+                <div class="panel-heading">
+                    <span class="eyebrow">Controls</span>
+                    <h2>Command Deck</h2>
+                </div>
+
+                <div class="control-stack">
+                    <button id="resetChatBtn" type="button" class="action-btn warning-btn">
+                        <span>Reset Chat</span>
+                    </button>
+
+                    <button id="resetKbBtn" type="button" class="action-btn danger-btn">
+                        <span>Reset Knowledge Base</span>
+                    </button>
+                </div>
+
+                <p class="control-help">
+                    Reset Chat keeps your uploaded files. Reset Knowledge Base removes all indexed files and starts a new workspace.
+                </p>
+            </div>
+        </aside>
+
+        <main class="center-panel">
+            <header class="hero glass-card">
+                <div class="hero-copy">
+                    <span class="eyebrow">AI Assistant Interface</span>
+                    <h2>Build a multi-file knowledge base and chat across all uploaded documents</h2>
+                    <p>
+                        Upload multiple files into one active knowledge base. Jarvis will index them,
+                        retrieve across all of them, and answer with inline source evidence.
+                    </p>
+                </div>
+
+                <div class="hero-core">
+                    <div class="core-ring ring-1"></div>
+                    <div class="core-ring ring-2"></div>
+                    <div class="core-ring ring-3"></div>
+                    <div class="core-center">
+                        <span>KB</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="glass-card upload-section">
+                <div class="section-header">
+                    <div>
+                        <span class="eyebrow">Input</span>
+                        <h2>Add File to Knowledge Base</h2>
+                    </div>
+                    <div class="section-badge" id="resultFileName">Last added file: —</div>
+                </div>
+
+                <label for="fileInput" class="upload-zone" id="uploadZone">
+                    <input
+                        type="file"
+                        id="fileInput"
+                        hidden
+                        accept=".pdf,.txt,.py,.js,.ts,.java,.c,.cpp,.docx,.csv,.json,.md,.html,.htm,.css"
+                    />
+                    <div class="upload-icon">⬡</div>
+                    <h3>Drop your file here or click to browse</h3>
+                    <p id="fileName">No file selected</p>
+                    <span class="upload-hint">Each upload is added to the current knowledge base</span>
+                </label>
+
+                <div class="upload-toolbar">
+                    <button id="uploadBtn" type="button" class="action-btn primary-btn">Add File</button>
+                    <div id="status" class="status-chip">Ready</div>
+                </div>
+            </section>
+
+            <section class="glass-card explanation-section">
+                <div class="section-header">
+                    <div>
+                        <span class="eyebrow">Analysis</span>
+                        <h2>Latest File Explanation</h2>
+                    </div>
+
+                    <div class="section-actions">
+                        <button id="copyBtn" type="button" class="ghost-btn">Copy</button>
+                    </div>
+                </div>
+
+                <div id="explanation" class="explanation-display">
+                    Upload a file to add it into the knowledge base and see its explanation here...
+                </div>
+
+                <div class="audio-panel">
+                    <div class="audio-header">
+                        <div>
+                            <span class="eyebrow">Voice Output</span>
+                            <h3>Synthesized Response</h3>
+                        </div>
+                    </div>
+
+                    <audio id="audioPlayer" controls preload="none"></audio>
+                    <a id="downloadAudioBtn" href="#" download class="ghost-link" style="display: none;">
+                        Download Audio
+                    </a>
+                </div>
+            </section>
+
+            <section class="glass-card chat-section">
+                <div class="section-header chat-header">
+                    <div>
+                        <span class="eyebrow">Conversation</span>
+                        <h2>Chat with the Knowledge Base</h2>
+                    </div>
+
+                    <div class="chat-settings">
+                        <label class="toggle-line">
+                            <input type="checkbox" id="autoPlayToggle" checked />
+                            <span>Auto-play audio</span>
+                        </label>
+
+                        <label class="select-line">
+                            <span>Voice language</span>
+                            <select id="languageSelect">
+                                <option value="en-US">English</option>
+                                <option value="hi-IN">Hindi</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="chatBox" class="chat-stream" aria-live="polite">
+                    <div class="chat-message jarvis">
+                        <div class="avatar">J</div>
+                        <div class="message-stack">
+                            <div class="message-meta">Jarvis</div>
+                            <div class="bubble">
+                                Hello. Add one or more files to the knowledge base, then ask me questions across all of them.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="typingIndicator" class="typing-indicator hidden" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="composer">
+                    <textarea
+                        id="chatInput"
+                        rows="1"
+                        placeholder="Ask something across all uploaded files..."
+                    ></textarea>
+
+                    <div class="composer-actions">
+                        <button id="micBtn" type="button" class="icon-btn" title="Speak">🎤</button>
+                        <button id="sendBtn" type="button" class="send-btn" title="Transmit">Transmit</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="right-panel">
+            <div class="glass-card intel-card">
+                <div class="panel-heading">
+                    <span class="eyebrow">Diagnostics</span>
+                    <h2>System Signals</h2>
+                </div>
+
+                <div class="signal-list">
+                    <div class="signal-row">
+                        <span>Assistant</span>
+                        <strong>Jarvis</strong>
+                    </div>
+                    <div class="signal-row">
+                        <span>Mode</span>
+                        <strong>Multi-file KB</strong>
+                    </div>
+                    <div class="signal-row">
+                        <span>Retrieval</span>
+                        <strong>ChromaDB</strong>
+                    </div>
+                    <div class="signal-row">
+                        <span>Streaming</span>
+                        <strong>Enabled</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card intel-card">
+                <div class="panel-heading">
+                    <span class="eyebrow">Activity</span>
+                    <h2>Mission Log</h2>
+                </div>
+
+                <div class="activity-log" id="activityLog">
+                    <div class="activity-item">System initialized.</div>
+                    <div class="activity-item">Knowledge base ready.</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="/static/script.js?v=12"></script>
+</body>
+</html>
