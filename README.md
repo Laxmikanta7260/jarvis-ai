@@ -7,7 +7,7 @@ An AI-powered knowledge assistant that allows users to upload documents and ask 
 ## 📦 Installation & Setup
 
 ```bash
-git clone https://github.com/your-username/jarvis-ai.git
+git clone https://github.com/Laxmikanta7260/jarvis-ai.git
 cd jarvis-ai
 pip install -r requirements.txt
 ollama run llama3
